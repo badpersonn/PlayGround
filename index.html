@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta name="theme-color" content="#17150e" />
+  <link rel="icon" href="data:," />
+  <title>THE YELLOW — A Backrooms nightmare</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="game" aria-label="The Yellow backrooms horror game">
+    <canvas id="view" aria-label="Game view"></canvas>
+    <div class="film-grain"></div>
+    <div class="vignette"></div>
+
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">Y</span><span>THE YELLOW <i>///</i> LEVEL 0</span></div>
+      <div class="status"><span class="rec-dot"></span><span id="statusText">SIGNAL LOST</span></div>
+    </header>
+
+    <section class="hud" id="hud" aria-live="polite">
+      <div class="objective-card"><div class="eyebrow">CURRENT OBJECTIVE</div><div class="objective-title" id="objective">Find the three memories</div><div class="progress-line"><span id="progressFill"></span></div><div class="progress-label"><span id="memoryCount">0 / 3 recovered</span><span id="signalReadout">NO SIGNAL</span></div></div>
+      <div class="bottom-left"><div class="noise-meter"><span class="meter-label">NOISE</span><div class="meter-track"><i id="noiseFill"></i></div></div><div class="hint" id="hint">The lights are listening.</div></div>
+      <div class="battery"><div class="battery-icon"><span id="batteryFill"></span></div><div><div class="eyebrow">FLASHLIGHT</div><div class="battery-value" id="batteryValue">100%</div></div><span class="battery-key">F</span></div>
+      <div class="crosshair"><i></i><b></b></div>
+      <div class="interact-prompt" id="interactPrompt"><span class="keycap">E</span><span>COLLECT MEMORY</span></div>
+      <div class="mobile-controls" id="mobileControls"><button data-touch="forward">▲</button><button data-touch="back">▼</button><button data-touch="left">◀</button><button data-touch="right">▶</button><button data-touch="use">E</button><button data-touch="light">☼</button></div>
+    </section>
+
+    <section class="screen active" id="intro">
+      <div class="intro-grid"></div>
+      <div class="intro-content">
+        <div class="overline"><span class="tiny-square"></span> FIELD RECORDING 001 &nbsp;·&nbsp; 02:17 AM</div>
+        <h1>THE<br><em>YELLOW.</em></h1>
+        <div class="intro-rule"><span></span><span>AN UNAUTHORIZED PLACE</span></div>
+        <p class="intro-copy">You fell through the floor.<br>Now the walls are learning your name.</p>
+        <button id="startButton" class="primary-button"><span>ENTER LEVEL 0</span><b>↗</b></button>
+        <div class="controls-note"><span>W A S D</span> MOVE <span>SHIFT</span> RUN <span>F</span> LIGHT <span>E</span> INTERACT</div>
+      </div>
+      <div class="intro-side"><span>NO EXIT FOUND</span><span class="vertical-line"></span><span>NO CLIP FOOTAGE · 1999</span></div>
+      <div class="intro-bottom"><span>IF YOU HEAR SOMETHING — DO NOT LOOK BACK</span><span>V 0.09 / LOCAL BUILD</span></div>
+    </section>
+
+    <section class="screen hidden" id="pauseScreen">
+      <div class="modal-card"><div class="eyebrow">LEVEL 0 // PAUSED</div><h2>Still here?</h2><p>The hum never stops.</p><button class="primary-button" id="resumeButton"><span>RETURN TO THE HALLS</span><b>↗</b></button><div class="modal-hint">PRESS <span>ESC</span> TO RESUME</div></div>
+    </section>
+    <section class="screen hidden" id="endScreen">
+      <div class="modal-card"><div class="eyebrow" id="endEyebrow">TRANSMISSION RECOVERED</div><h2 id="endTitle">You found a way out.</h2><p id="endCopy">For now.</p><button class="primary-button" id="restartButton"><span>ENTER AGAIN</span><b>↻</b></button><div class="modal-hint" id="finalStats"></div></div>
+    </section>
+    <div class="flash" id="flash"></div>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
