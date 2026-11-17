@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#101114" />
+  <title>RINGCRAFT — Fight Night</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Ringcraft home"><span class="brand-mark">R</span><span>RING<span class="brand-light">CRAFT</span></span></a>
+      <div class="event"><span class="live-dot"></span> FIGHT NIGHT <span class="event-divider">/</span> EXHIBITION 01</div>
+      <button class="sound-button" id="soundToggle" aria-label="Toggle sound"><span class="sound-icon">♪</span><span id="soundLabel">SOUND ON</span></button>
+    </header>
+
+    <section class="fight-card" aria-label="Boxing match">
+      <div class="fighter-head red-head">
+        <div class="fighter-id"><span class="corner-tag red-tag">RED CORNER</span><h2>THE<br><em>FLASH</em></h2><p>QUICK HANDS · 5'10"</p></div>
+        <div class="record"><strong id="redWins">00</strong><span>WINS</span></div>
+      </div>
+      <div class="fighter-head blue-head">
+        <div class="record"><strong id="blueWins">00</strong><span>WINS</span></div>
+        <div class="fighter-id"><span class="corner-tag blue-tag">BLUE CORNER</span><h2>IRON<br><em>SAINT</em></h2><p>HEAVY HITTER · 6'1"</p></div>
+      </div>
+    </section>
+
+    <section class="arena-wrap">
+      <div class="arena-topline"><span>BOUT 01</span><span class="round-label" id="roundLabel">ROUND 1 OF 3</span><label class="round-picker">ROUNDS <select id="roundCount" aria-label="Number of rounds"><option value="1">1</option><option value="3" selected>3</option><option value="5">5</option><option value="7">7</option></select><span>× 3 MIN</span></label></div>
+      <div class="canvas-frame">
+        <div id="game" aria-label="Three-dimensional two-player boxing ring game"></div>
+        <div class="countdown" id="countdown" aria-hidden="true"></div>
+        <div class="round-clock"><span class="clock-label">ROUND TIME</span><strong id="timer">3:00</strong><span class="clock-pips"><i class="active"></i><i></i><i></i></span></div>
+        <div class="callout" id="callout" aria-live="polite"></div>
+        <div class="center-message" id="centerMessage">
+          <div class="message-card"><span class="eyebrow">A LOCAL 2-PLAYER FIGHT</span><h1>OWN THE<br><em>RING.</em></h1><p>Read your opponent. Make them miss. Make it count.</p><button class="start-button" id="startButton">STEP INTO THE RING <span>→</span></button><div class="quick-hint">RED <kbd>J</kbd>–<kbd>H</kbd> PUNCHES · <kbd>Y</kbd>/<kbd>T</kbd> ILLEGAL SHOTS <span>·</span> BLUE <kbd>1</kbd>–<kbd>4</kbd>, <kbd>6</kbd> PUNCHES · <kbd>7</kbd>/<kbd>8</kbd> ILLEGAL SHOTS · <kbd>SHIFT</kbd> BODY</div></div>
+        </div>
+        <div class="result-overlay hidden" id="resultOverlay"><span class="eyebrow">FINAL BELL</span><h2 id="resultTitle">RED CORNER WINS</h2><p id="resultCopy">A clean performance.</p><button class="start-button" id="rematchButton">FIGHT AGAIN <span>↻</span></button></div>
+      </div>
+      <div class="arena-bottomline"><span><b class="red-dot"></b> RED CORNER</span><span class="canvas-hint">FIRST TO KNOCKDOWN OR WIN ON POINTS</span><span>BLUE CORNER <b class="blue-dot"></b></span></div>
+    </section>
+
+    <section class="status-row" aria-label="Fighter status">
+      <div class="status-box"><div class="status-title"><span>RED CORNER</span><span id="redCondition">READY</span></div><div class="split-meters"><div class="split-meter"><div class="meter-label"><span>HEAD</span><strong id="redHeadText">100</strong></div><div class="meter health head-health"><i id="redHead"></i></div></div><div class="split-meter"><div class="meter-label"><span>BODY</span><strong id="redBodyText">100</strong></div><div class="meter health body-health"><i id="redBody"></i></div></div></div><div class="meter-label stamina-label"><span>STAMINA</span><strong id="redStaminaText">100</strong></div><div class="meter stamina"><i id="redStamina"></i></div></div>
+      <div class="status-box blue-status"><div class="status-title"><span>BLUE CORNER</span><span id="blueCondition">READY</span></div><div class="split-meters"><div class="split-meter"><div class="meter-label"><span>HEAD</span><strong id="blueHeadText">100</strong></div><div class="meter health head-health"><i id="blueHead"></i></div></div><div class="split-meter"><div class="meter-label"><span>BODY</span><strong id="blueBodyText">100</strong></div><div class="meter health body-health"><i id="blueBody"></i></div></div></div><div class="meter-label stamina-label"><span>STAMINA</span><strong id="blueStaminaText">100</strong></div><div class="meter stamina"><i id="blueStamina"></i></div></div>
+    </section>
+
+    <section class="controls">
+      <div class="controls-heading"><span>FIGHTER'S CORNER</span><span>KNOW YOUR MOVES</span></div>
+      <div class="control-columns">
+        <div class="control-player"><span class="player-number red-text">01</span><div class="control-info"><h3>RED CORNER</h3><div class="key-grid"><span><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> MOVE</span><span><kbd>Q</kbd><kbd>E</kbd> SLIP</span><span><kbd>F</kbd> GUARD</span><span><kbd>G</kbd> ROLL</span><span><kbd>J</kbd> JAB</span><span><kbd>K</kbd> CROSS</span><span><kbd>L</kbd> LEFT HOOK</span><span><kbd>;</kbd> RIGHT HOOK</span><span><kbd>H</kbd> UPPERCUT</span><span><kbd>Y</kbd> LOW BLOW (FOUL)</span><span><kbd>T</kbd> RABBIT PUNCH (FOUL)</span><span><kbd>SHIFT</kbd> BODY SHOT</span><span><kbd>C</kbd> CLINCH</span></div></div></div>
+        <div class="control-player"><span class="player-number blue-text">02</span><div class="control-info"><h3>BLUE CORNER</h3><div class="key-grid"><span><kbd>←</kbd><kbd>↑</kbd><kbd>↓</kbd><kbd>→</kbd> MOVE</span><span><kbd>,</kbd><kbd>.</kbd> SLIP</span><span><kbd>I</kbd> GUARD</span><span><kbd>O</kbd> ROLL</span><span><kbd>1</kbd> JAB</span><span><kbd>2</kbd> CROSS</span><span><kbd>3</kbd> LEFT HOOK</span><span><kbd>4</kbd> RIGHT HOOK</span><span><kbd>6</kbd> UPPERCUT</span><span><kbd>7</kbd> LOW BLOW (FOUL)</span><span><kbd>8</kbd> RABBIT PUNCH (FOUL)</span><span><kbd>SHIFT</kbd> BODY SHOT</span><span><kbd>5</kbd> CLINCH</span></div></div></div>
+      </div>
+      <p class="tip"><span>FOULS</span> Illegal low blows and rabbit punches earn a warning, then a point deduction; a third foul means disqualification.</p>
+    </section>
+    <footer><span>RINGCRAFT <i>·</i> THE SWEET SCIENCE, SHARED.</span><span>LOCAL PLAY <i>·</i> 1 / 3 / 5 / 7 ROUNDS</span></footer>
+  </main>
+  <script type="module" src="game.js"></script>
+</body>
+</html>
